@@ -1,0 +1,666 @@
+%\addtolength{\hoffset}{-2.25cm}
+%\addtolength{\textwidth}{4.5cm}
+%\addtolength{\voffset}{-3.25cm}
+%\addtolength{\textheight}{10cm}
+
+%\setlength{\parskip}{5pt}
+%\setlength{\parindent}{0in}
+
+\usepackage[left=2.54cm, right=2.54cm,
+bottom=2.54cm,
+  top=2cm, % Establece el espacio superior
+  headheight=2cm, % Establece la altura del encabezado
+  headsep=0.5cm, % Establece el espacio entre el encabezado y el cuerpo del texto
+]{geometry}
+
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\usepackage{blindtext} % Package to generate dummy text
+%\usepackage{lmodern} % Use the Charter font
+%\usepackage[utf8]{inputenc} % Use UTF-8 encoding
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[spanish,mexico,es-lcroman]{babel} % Language hyphenation and typographical rules
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{caption}
+\usepackage{enumerate} % enumerado
+
+%\usepackage{hyperref}
+\spanishdecimal{.}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{listingsutf8}
+
+\usepackage{tikz,tcolorbox}
+\usepackage[framemethod=tikz]{mdframed}
+
+\usepackage{framed}
+\usepackage{color}
+\usepackage{wrapfig}
+\definecolor{shadecolor}{RGB}{0.86,0.84,0.82}
+
+\usepackage{amsthm, amsmath, amssymb} % Mathematical typesetting
+\usepackage{amsfonts}
+\usepackage{float} % Improved interface for floating objects
+\usepackage[final, colorlinks = true, 
+            linkcolor = black,
+            %linktoc = false,
+            citecolor = blue,
+            urlcolor = blue!80!black!70]{hyperref} % For hyperlinks in the PDF
+%\usepackage{hyperref}
+%\hypersetup{
+  %colorlinks=true,
+  %linkcolor=black,
+  %urlcolor=blue
+%}
+\usepackage{titletoc}
+\usepackage{titlesec}
+
+\usepackage{graphicx, multicol} % Enhanced support for graphics
+\usepackage{xcolor} % Driver-independent color extensions
+\usepackage{marvosym, wasysym} % More symbols
+\usepackage{rotating} % Rotation tools
+\usepackage{censor} % Facilities for controlling restricted text
+\usepackage{listings} % Environment for non-formatted code, !uses style file!
+\usepackage{pseudocode} % Environment for specifying algorithms in a natural way
+\usepackage{booktabs} % Enhances quality of tables
+\usepackage{tikz-qtree} % Easy tree drawing tool
+\tikzset{every tree node/.style={align=center,anchor=north},
+         level distance=2cm} % Configuration for q-trees
+%----------------- ACA
+%\usepackage[backend=biber,style=numeric,
+            %sorting=nyt]{biblatex} % Complete reimplementation of bibliographic facilities
+%\addbibresource{ecl.bib}
+
+
+\usepackage[autostyle]{csquotes} % Context sensitive quotation facilities
+\usepackage[yyyymmdd]{datetime} % Uses YEAR-MONTH-DAY format for dates
+\renewcommand{\dateseparator}{-} % Sets dateseparator to '-'
+
+%LETRA MODIFICADA ---------------
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault} % use lmodern for paragraphs
+\usepackage[T1]{fontenc} % i.a. makes title font non-serif
+
+\usepackage{fouriernc} % sharper font for on-screen
+\DeclareMathAlphabet{\mathbf}{T1}{fut\mathfamilyextension}{b}{n} 
+\renewcommand{\bfdefault}{b}
+
+\newcommand{\note}[1]{\marginpar{\scriptsize \textcolor{red}{#1}}} % Enables comments in red on margin
+\usepackage{array}
+
+\newcommand*{\filltext}{The quick brown fox jumps over the lazy dog.}
+
+%\usepackage{adjustbox}
+\usepackage{graphicx,bm}
+%\usepackage{showframe}   %% just for demo
+
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usepackage{mathtools}
+\usepackage{array}
+\newcolumntype{L}{>{\centering\arraybackslash}m{7cm}}
+
+\usepackage[font={small,it},labelfont={bf}]{caption}
+\newcommand{\centered}[1]{\begin{tabular}{l} #1 \end{tabular}}
+
+\definecolor{bl1}{RGB}{170, 170, 170}
+\definecolor{color1}{RGB}{60, 93, 189}
+\definecolor{color2}{RGB}{56, 107, 255}
+\definecolor{color3}{RGB}{0, 48, 188}
+\usepackage{nicematrix}
+
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usepackage{setspace}
+
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{helvet}
+
+\usepackage{tabularray}
+\usepackage[export]{adjustbox}
+
+\UseTblrLibrary{varwidth}
+\usepackage{soul}
+%\usepackage[%
+  %colorlinks=true,%
+  %urlcolor=red%
+%]{hyperref}
+\usepackage[pages=some]{background}
+
+\usepackage{tabularray,varwidth,enumitem}
+
+%\usepackage{titlesec}
+%\newcommand{\chapfnt}{\fontsize{12}{12}}
+\newcommand{\secfnt}{\fontsize{12}{12}}
+\newcommand{\ssecfnt}{\fontsize{12}{12}}
+
+%PAQUETE PARA AGREGAR + A LAS FLECHAS
+\usepackage{amssymb,stackengine,scalerel}
+
+%SIMBOLO +/- REDUCIDO
+\newcommand{\MAS}{\mbox{\scriptsize+}}
+\newcommand{\MENOS}{\mbox{\footnotesize-}}
+%SENTIDOS POSITIVOS
+%SENTIDO ANTIHORARIO CON SUMA
+\newcommand\plusarrowleft{\mathrel{\ThisStyle{%
+  \ensurestackMath{\stackengine{-0.5pt}{\SavedStyle\curvearrowleft}%
+        {\SavedStyle\hspace{2.5pt}\MAS}{O}{c}{F}{T}{L}}%
+}}}
+%SENTIDO DERECHA CON SUMA
+\newcommand\plusrightarrow{\mathrel{\ThisStyle{%
+  \ensurestackMath{\stackengine{4.5pt}{\SavedStyle\rightarrow}%
+        {\SavedStyle\hspace{-2pt}\MAS}{O}{c}{F}{T}{L}}%
+}}}
+%SENTIDO ARRIBA CON SUMA
+\newcommand\plusuparrow{\mathrel{\ThisStyle{%
+  \ensurestackMath{\stackengine{0pt}{\SavedStyle\uparrow}%
+        {\SavedStyle\hspace{-7pt}\MAS}{O}{c}{F}{T}{L}}%
+}}}
+%SENTIDOS NEGATIVOS
+%SENTIDO HORARIO CON RESTA
+\newcommand\minarrowright{\mathrel{\ThisStyle{%
+  \ensurestackMath{\stackengine{-0.5pt}{\SavedStyle\curvearrowright}%
+        {\SavedStyle\hspace{-1.5pt}\MENOS}{O}{c}{F}{T}{L}}%
+}}}
+%SENTIDO IZQUIERDA CON RESTA
+\newcommand\minleftarrow{\mathrel{\ThisStyle{%
+  \ensurestackMath{\stackengine{4.5pt}{\SavedStyle\leftarrow}%
+        {\SavedStyle\hspace{2pt}\MENOS}{O}{c}{F}{T}{L}}%
+}}}
+%SENTIDO ABAJO CON RESTA
+\newcommand\mindownarrow{\mathrel{\ThisStyle{%
+  \ensurestackMath{\stackengine{2pt}{\SavedStyle\downarrow}%
+        {\SavedStyle\hspace{-7pt}\MENOS}{O}{c}{F}{T}{L}}%
+}}}
+
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+%CONFIGURACION PARA LONGTABLE
+\DefTblrTemplate{caption}{default}{%
+  \UseTblrTemplate{caption-tag}{default}%
+  \UseTblrTemplate{caption-sep}{default}%
+  \UseTblrTemplate{caption-text}{default}%
+}
+\DefTblrTemplate{capcont}{default}{%
+  \UseTblrTemplate{caption-tag}{default}%
+  \UseTblrTemplate{caption-sep}{default}%
+  \UseTblrTemplate{caption-text}{default}
+  \UseTblrTemplate{conthead-text}{default}%
+}
+
+\SetTblrStyle{caption-text}{font=\\[-10pt]\it\footnotesize}
+\SetTblrStyle{caption-tag}{font=\footnotesize}
+%\SetTblrStyle{caption-tag}{font=\bfseries\footnotesize}
+
+\DefTblrTemplate{contfoot-text}{normal}{\scriptsize\textit{Continua en la siguiente página}}
+\SetTblrTemplate{contfoot-text}{normal}
+
+\DefTblrTemplate{conthead-text}{default}{\footnotesize(continuación)}
+
+\DefTblrTemplate { caption-sep } { empty } { }
+\DefTblrTemplate { caption-sep } { normal } { \vspace*{6pt} }
+\SetTblrTemplate { caption-sep } { normal }
+
+\usepackage{nicefrac,xfrac}
+
+
+\newcommand{\mycbox}[1]{\tikz{\path[draw=black,fill=#1] (0,0) rectangle (0.35cm,0.18cm);}}
+
+% :::::::::::::::: SUBFIGURAS :::::::::::::::::
+\usepackage{subcaption}
+\captionsetup{subrefformat=parens}
+\usepackage{cancel}
+% ------------
+%\usepackage{newtxtext}
+\usepackage[labelsep=period]{caption}
+\captionsetup[figure]{font=footnotesize,labelfont={it}}
+\captionsetup[sub]{font=normalsize, labelfont=normal}
+
+%----------------------------------------------------------------------------------------
+
+%NUEVO PARRAFO SIN NUMERACION
+\titleformat*{\paragraph}{\itshape\bfseries}
+\newcommand{\parrafo}[1]{\paragraph{#1}\mbox{}\vspace{6pt}\\}
+
+\setcounter{secnumdepth}{3}
+%SÍMBOLO DE ESTRIBO 
+\newcommand{\ESTRIBO}{%
+  \begingroup\normalsize
+  \includegraphics[height=\fontcharht\font`\B]{img/Estribo.pdf}%
+  \endgroup
+}
+\newcommand{\ESTRIBOX}{%
+  \begingroup\scriptsize
+  \includegraphics[height=\fontcharht\font`\B]{img/Estribo.pdf}%
+  \endgroup
+}
+
+%SIMBOLO DE ARROBA
+\newcommand{\ARR}{\fontfamily{ptm}\selectfont{@}}
+%\usepackage{txfonts}
+
+
+%PARA TEXTO SUBESCRITO
+\usepackage{fixltx2e}
+\definecolor{verde0}{RGB}{0,170,73}
+
+%ENTORNO PARA CUADRO DE TEXTO
+
+\definecolor{fondo}{RGB}{200,200,200}
+\definecolor{azul1}{RGB}{36,22,168}
+\definecolor{azul2}{RGB}{9,0,168}
+\definecolor{azul3}{RGB}{0,46,211}
+
+% NUEVO ESTILO PARA LA TABLA DE CONTENIDOS
+
+\usepackage{tocloft}
+
+\renewcommand{\cftsecleader}{\bfseries\color{black}\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecaftersnum}{\hspace{1em}\vrule height 1.5ex depth 0pt width 0.1em\hspace{1em}}
+\setlength{\cftsecnumwidth}{3em}
+\renewcommand{\cftsecfont}{\normalsize\bfseries\hypersetup{linkcolor=black}}
+\renewcommand{\cftsecpagefont}{\color{black}\normalsize\bfseries}
+
+%::::::: PARA EL ÍNDICE GENERAL :::::::::::
+\renewcommand{\cfttoctitlefont}{\color{black}\Large\bfseries\MakeUppercase}
+\renewcommand{\cftaftertoctitle}{}
+\renewcommand{\cftaftertoctitleskip}{0pt}
+
+% Añadir líneas horizontales alrededor del título
+\renewcommand{\cftaftertoctitle}{%
+  \vspace{6pt}
+  \color{black}\hrule height 1pt\relax
+  \vspace{6pt}%
+  \color{black}%
+}
+
+%::::::: PARA EL ÍNDICE DE FIGURAS :::::::::::
+\renewcommand{\cftloftitlefont}{\color{black}\Large\bfseries\MakeUppercase}
+\renewcommand{\cftafterloftitle}{}
+\renewcommand{\cftafterloftitleskip}{10pt}
+%
+\renewcommand{\cftafterloftitle}{%
+  \vspace{6pt}
+  \color{black}\hrule height 1pt\relax
+  \vspace{6pt}%
+  \color{black}%
+}
+
+
+%::::::: PARA EL ÍNDICE DE TABLAS :::::::::::
+\renewcommand{\cftlottitlefont}{\color{black}\Large\bfseries\MakeUppercase}
+\renewcommand{\cftafterlottitle}{}
+\renewcommand{\cftafterlottitleskip}{10pt}
+%
+\renewcommand{\cftafterlottitle}{%
+  \vspace{6pt}
+  \color{black}\hrule height 1pt\relax
+  \vspace{6pt}%
+  \color{black}%
+}
+
+
+
+%\usepackage[natbib=true,backend=biber,sorting=nyt,style=apa6]{biblatex}
+
+%\renewcommand*{\bibfont}{\fontsize{12}{12}\selectfont}
+%\addbibresource{Bibliografia.bib}
+
+\renewcommand{\tablename}{Tabla}
+\definecolor{ROJO1}{RGB}{255, 18, 58}
+\definecolor{AMARILLO1}{RGB}{231, 255, 54}
+\definecolor{VERDE1}{RGB}{0, 255, 91}
+\definecolor{VERDE2}{RGB}{0, 132, 53}
+
+%\definecolor{verde3}
+
+\usepackage{fancyhdr} % Headers and footers
+%Nuevo comando para definir la seccion
+
+%\newcommand{\miseccion}{}
+%\renewcommand{\sectionmark}[1]{\renewcommand{\miseccion}{\thesection.\enspace#1}}
+
+%\newif\ifappendix
+
+% Define un nuevo comando \lastsectionmark para almacenar el nombre de la última sección
+
+\newcommand{\miseccion}{}
+\renewcommand{\sectionmark}[1]{\renewcommand{\miseccion}{\thesection.\enspace#1}}
+
+%\newcommand{\miseccion}{}
+%\renewcommand{\sectionmark}[1]{%\renewcommand{\miseccion}{\rightmark}%}
+
+
+\fancypagestyle{estilo1}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt} % Elimina la línea horizontal en la parte superior
+  \fancyhead[R]{\roman{\thepage}} % Coloca el número de página en romanos minúsculos en la esquina superior derecha la derecha
+}
+
+\fancypagestyle{estilo2}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[L]{}
+  \fancyhead[R]{} % La numeración de página a la derecha
+  \setcounter{page}{1}
+  \fancyfoot[L]{}
+  \fancyfoot[C]{-- \thepage\ --}
+  \fancyfoot[R]{}
+}
+
+
+\usepackage[toc,page]{appendix}
+\renewcommand\appendixname{Anexos}
+\renewcommand\appendixtocname{\appendixname}
+\renewcommand\appendixpagename{Anexos}
+
+
+%\usepackage[natbib=true,backend=biber,sorting=nyt,style=ieee]{biblatex}
+\usepackage[backend=biber,style=ieee,sorting=nyt]{biblatex}
+\addbibresource{Referencias.bib}
+
+\makeatletter
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
+  {\usebibmacro{cite:init}}
+  {\usebibmacro{citeindex}%
+   \mkbibbrackets{\usebibmacro{cite:comp}}}
+  {}
+  {\usebibmacro{cite:dump}}
+\makeatother
+
+
+\usepackage{makecell}
+\captionsetup[subtable]{position=auto, justification = centering}
+
+%ETIQUETA DE TABLA
+\DeclareCaptionLabelSeparator*{spaced}{\\[1pt]}
+\captionsetup[table]{font=footnotesize, textfont=it,format=plain,justification=justified, singlelinecheck=false,labelsep=spaced,skip=6pt, labelfont={normal,footnotesize}}
+
+%NOTAS AL PIE DE LA TABLA
+\usepackage[flushleft]{threeparttable}
+
+
+\tcbset{%
+    theo/.style={%
+        enhanced,
+        breakable,
+        sharp corners,
+        toprule=0pt, rightrule=0pt, bottomrule=0pt, leftrule=1mm,
+        colback=#1!5, colframe=#1!80!black, coltitle=#1!80!black, 
+        detach title,
+        overlay unbroken and first ={
+            \node[rotate=90, minimum width=1cm, anchor=south, font=\bfseries] 
+               at (frame.west) {\tcbtitle};
+        }
+    }
+}
+
+\newtcbtheorem[no counter]{mytheo}{}
+{theo=gray, fonttitle=\scriptsize, separator sign none}{th}
+
+
+%Enumeracion exclusiva para ANEXOS 
+\usepackage{chngcntr}
+%\newcommand{\anexosection}[1]{%
+  %\refstepcounter{section}%
+  %\renewcommand{\thesection}{\Alph{section}}%
+  %\section{#1}%
+%}
+
+%ESTILO DE FUENTE ROBOTO
+\newcommand\TITULOS{\fontfamily{qag}\selectfont}
+
+
+%ESTILO TECLAS 
+\usepackage{inconsolata}
+\definecolor{micolor1}{RGB}{244,242,249}
+\definecolor{micolor2}{RGB}{000,114,190}
+\newtcbox{\TECLAS}[1][red]{on line,
+arc=3pt,colback=blue!8,colframe=blue!8,
+before upper={\rule[-3pt]{0pt}{10pt}},boxrule=1pt,
+boxsep=0pt,left=2pt,right=2pt,top=1pt,bottom=.5pt}
+
+%NUMEROS CIRCULARES
+\makeatletter
+% Based on https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+%
+\usepackage{pict2e,picture}
+\pgfkeys{/csteps/inner ysep/.initial=4pt,
+    /csteps/inner xsep/.initial=4pt,
+    /csteps/inner color/.initial=red,
+    /csteps/outer color/.initial=blue,
+}
+\newsavebox\csteps@CBox
+\newlength\csteps@XLength \newlength\csteps@YLength \newlength\csteps@YDepth \newlength\csteps@tmplen
+\def\csteps@CircledParam#1#2{\sbox\csteps@CBox{#2}%
+    \csteps@XLength=\wd\csteps@CBox\advance\csteps@XLength by\pgfkeysvalueof{/csteps/inner xsep}\relax
+    \csteps@tmplen=\pgfkeysvalueof{/csteps/inner ysep}\relax
+    \csteps@YDepth=\dp\csteps@CBox\advance\csteps@YDepth by 0.5\csteps@tmplen\relax
+    \csteps@YLength=\ht\csteps@CBox\advance\csteps@YLength by\dp\csteps@CBox\advance\csteps@YLength by\pgfkeysvalueof{/csteps/inner ysep}\relax
+    \typeout{DBG:#2\space X\space\the\csteps@XLength\space Y:\the\csteps@YLength\space D:\the\csteps@YDepth}%
+    \raisebox{-#1\csteps@YDepth}{%
+    \ifdim\csteps@XLength>\csteps@YLength
+    \makebox[\csteps@XLength]{% X bigger than Y
+        \makebox(0,\csteps@YLength){%
+            \color{\pgfkeysvalueof{/csteps/outer color}}\put(0,0){\oval(\csteps@XLength,\csteps@YLength)}%
+        }%
+    \makebox(0,\csteps@YLength){%
+        \put(-.5\wd\csteps@CBox,0){\textcolor{\pgfkeysvalueof{/csteps/inner color}}{#2}}%
+    }}%
+    \else
+    \makebox[\csteps@YLength]{%
+        \makebox(0,\csteps@YLength){%
+            \color{\pgfkeysvalueof{/csteps/outer color}}\put(0,0){\circle{\csteps@YLength}}%
+        }%
+    \makebox(0,\csteps@YLength){%
+        \put(-.5\wd\csteps@CBox,0){\textcolor{\pgfkeysvalueof{/csteps/inner color}}{#2}}%
+     }}%
+    \fi
+    }%
+}
+\def\Circled#1{\csteps@CircledParam{1}{#1}}
+\def\CircledTop#1{\csteps@CircledParam{0}{#1}}
+\makeatother
+
+%PAQUETE PARA ALGORITMO
+\usepackage{etoolbox}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+
+\makeatletter
+%%% Coloring the comment as blue
+\newcommand\mycommfont[1]{\tiny\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+\SetKwInput{KwInput}{Entrada}                % Set the Input
+\SetKwInput{KwOutput}{Salida}              % set the Output
+\SetKwInput{KwData}{Datos}
+
+%\SetAlFnt{\scriptsize}
+%\SetAlCapFnt{\scriptsize}
+%\SetAlCapNameFnt{\scriptsize}
+\SetAlFnt{\tiny}
+\SetAlCapFnt{\tiny}
+\SetAlCapNameFnt{\tiny}
+%\DeclareCaptionLabelFormat{algnonumber}{Algoritmo}
+%\captionsetup[algorithm]{labelformat=algnonumber}
+\SetAlgorithmName{Algoritmo}{Mi Lista de algoritmos}
+%\SetKwFor{While}{Mientras que}
+%\SetKwFor{MientrasQue}{mientras que}{hacer}{fin mientras que}
+\makeatother
+\renewcommand{\thealgocf}{}
+
+
+\definecolor{titlepagecolor}{RGB}{248,248,248}
+\definecolor{namecolor}{RGB}{130,130,130} 
+
+
+
+\tcbuselibrary{skins}
+\usetikzlibrary{shadings}
+\newcounter{datos}
+%ESTILO DE CUADRO
+\tcbset{
+  base/.style={
+    empty,
+    frame engine=path,
+    colframe=gray!4,
+    sharp corners,
+    title={},  % Eliminamos el título predeterminado
+    attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+    boxed title style={size=minimal, top=4pt, left=4pt},
+    coltitle=black,
+    fonttitle=\bfseries\sffamily,
+  }
+}
+
+\newtcolorbox[use counter=datos]{DATOS}[2][]{%
+  base,
+  title={#2},  % Usamos el título proporcionado o ninguno si no se proporciona
+  boxed title style={
+    overlay={
+      \draw[black,line width=3pt] (frame.north west)--(frame.north east);
+    }
+  },
+  colback=black,
+  overlay unbroken={
+    \draw[black] ([yshift=-1.5pt]title.north east)--([xshift=-0.5pt, yshift=-1.5pt]title.north-|frame.east);
+  },
+  #1  % Posibilidad de pasar opciones adicionales al cuadro
+}
+
+
+\newcommand\ssbullet[1][.8]{\mathbin{\ThisStyle{\vcenter{\hbox{%
+  \scalebox{#1}{$\SavedStyle\bullet$}}}}}%
+}
+\renewcommand{\labelitemi}{\(\ssbullet\)}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection.}
+  {.5em}
+  {}
+  [\vspace{.2ex}\titlerule]
+
+\captionsetup[subtable]{position=auto, justification = centering}
+
+%PARA EL ESPECTRO
+\usepackage{tkz-fct}
+\UseTblrLibrary{diagbox}
+\usepackage{scrextend}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{colorbrewer}
+\usepgfplotslibrary{colormaps}
+
+\usepackage{pgfgantt}
+\usepackage{rotating}
+
+\tikzset{
+    pline/.style={% plot line
+        every plot/.style={
+            mark=x,
+            mark options={
+                black,
+                thin,
+                smooth,
+            },
+            mark size=2pt,
+        },
+        thin,
+        black,
+        %dashed,
+    },
+}
+\newcommand{\rectangle}{{%
+  \ooalign{$\sqsubset\mkern3mu$\cr$\mkern3mu\sqsupset$\cr}%
+}}
+
+% ADORNOS PARA TEXTO
+\usepackage{fourier-orns}
+\usetikzlibrary{arrows.meta}
+
+%ESTILO HISTERETICO PARA GRAFICOS
+\usetikzlibrary{decorations.markings}
+%\pgfplotsset{compat=1.13}
+\tikzset{
+  set arrow inside/.code={\pgfqkeys{/tikz/arrow inside}{#1}},
+  set arrow inside={end/.initial=>, opt/.initial=},
+  /pgf/decoration/Mark/.style={
+    mark/.expanded=at position #1 with
+    {
+      \noexpand\arrow[\pgfkeysvalueof{/tikz/arrow inside/opt}]{\pgfkeysvalueof{/tikz/arrow inside/end}}
+    }
+  },
+  arrow inside/.style 2 args={
+    set arrow inside={#1},
+    postaction={
+      decorate,decoration={
+        markings,Mark/.list={#2}
+      }
+    }
+  },
+}
+
+\pgfplotsset{
+    din xlabel/.style={
+        xticklabel style={
+            name=label\ticknum,
+            append after command=\pgfextra{\xdef\lastticknum{\ticknum}}
+        },
+        after end axis/.code={
+            \pgfmathparse{int(\lastticknum-1)}
+            \path (label\lastticknum.base) -- (label\pgfmathresult.base) node [midway, anchor=base] {#1};
+        }
+    }
+}
+
+\newtcolorbox{SISMO}[1]%
+  {
+    enhanced,
+    sharp corners,
+%arc=1mm,
+outer arc=1mm,
+boxrule=0mm,
+toprule=0mm,
+bottomrule=0mm,
+left=1mm,
+right=1mm,
+leftrule=0mm,
+titlerule=0mm,
+toptitle=0mm,
+bottomtitle=0mm,
+top=0mm,
+boxrule = 0.75pt,
+colframe=black!55!white,
+colback=black!2!white,
+title=#1,
+fonttitle=\bfseries\sffamily\normalsize,fontupper=\normalsize\itshape,
+ coltitle=black,
+  attach boxed title to top left={
+                                xshift=0mm,
+                                yshift=-5.5mm,
+                                yshifttext=-1mm
+                                },  
+top=1.5em,
+boxed title style={
+                      sharp corners,
+                      size=small,
+                      colback=gray!10,
+                    colframe=black!45!white,colbacktitle=black
+                    } 
+  }
+
+
+\begin{comment}
+   \titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection \quad {#1}}{.5em}{\vspace{.5ex}}[\titlerule]
+\titlespacing*{\section}
+  {0pt}{0pt}{15pt} 
+\end{comment}

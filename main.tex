@@ -1,0 +1,44 @@
+\documentclass[12pt,a4paper]{article}
+\input{paquetes}
+
+%\bibliographystyle{plain}
+%\bibliographystyle{unsrtnat}
+\begin{document}
+    %\frontmatter
+    %\renewcommand{\thepage}{\CoverName}
+    
+    \include{caratula}
+
+    %\pagestyle{estilo1}
+    \clearpage
+    \restoregeometry
+    {
+    %\hypersetup{linkcolor=black}
+    \pagestyle{estilo1}
+    \pagenumbering{roman}
+    \onehalfspacing  
+        \tableofcontents
+        \listoffigures
+        \listoftables
+    }
+    \cleardoublepage
+    %\mainmatter
+    %\pagenumbering{arabic}
+    %CAPITULO 1: INTRODUCCIÓN
+    \pagestyle{estilo2}
+    \pagenumbering{arabic}
+    \input{1-CAP}
+    \input{2-CAP}
+    \input{3-CAP}
+    \input{4-CAP}
+    {\begin{otherlanguage}{spanish}
+        \clearpage
+        \addcontentsline{toc}{section}{Referencias}
+        \printbibliography[title={Referencias}]
+    \end{otherlanguage}}
+
+    \clearpage
+    %\input{Anexos}
+
+\end{document}
+

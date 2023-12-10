@@ -1,0 +1,392 @@
+\onehalfspacing
+\section{Compatibilización de espectros}
+
+\subsection{Número de acelerogramas ingresados}
+Se han ingresado 7 pares de acelerogramas (14 en total) en dirección este-oeste y norte-sur. la descripción de los acelerogramas se detallan en la siguiente tabla:
+\begin{longtblr}[
+    caption = {Lista de acelerogramas ingresados al programa ETABS},
+    label = {t3_1},
+]{
+    colspec = {r X[l,wd=4cm] X[c,m] X[c,m] X[c,m] X[c,m]},
+    row{1} = {font = \bfseries},
+    hline{1,9} = {1pt},
+    hline{2} = {0.25pt},
+    row{3,5,7} = {gray!8},
+}
+    n\textdegree & Nombre & Orientación & $\bm{\Delta T \; (seg)}$ & Orientación & $\bm{\Delta T \; (seg)}$ \\
+
+    1 & SM-AR-2001 & EW & $0.010$ & NS & $0.010$ \\
+
+    2 & SM-LIMA-1966 & EW & $0.020$ & NS & $0.020$ \\
+
+    3 & SM-LIMA-1974 & EW & $0.020$ & NS & $0.020$ \\
+
+    4 & SM-MAULE-2010 & EW & $0.005$ & NS & $0.005$ \\
+
+    5 & SM-PISCO-2007 & EW & $0.010$ & NS & $0.010$ \\
+
+    6 & SM-TARAPACA-2005 & EW & $0.005$ & NS & $0.005$ \\
+
+    7 & SM-TOCOPILLA-2007 & EW & $0.005$ & NS & $0.005$
+\end{longtblr}
+
+Por ejemplo, el acelerograma de Lima 1974 en ambas direcciones tiene la siguiente gráfica:
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.98\linewidth}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width=0.98\linewidth, height=6.5cm,
+        xtick={0, 10, 20, 30, 40, 50, 60, 70, 80, 90},
+        ytick={-0.90, -0.70, -0.50, -0.30, -0.10, 0.10, 0.30, 0.50, 0.70, 0.9},
+        xmin=0,xmax=95,
+        ymin=-0.9, ymax=0.9,
+        minor y tick num=1,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        grid=both,
+        %grid=major,
+        tick label style={font=\tiny},
+        clip=false,
+        hide obscured x ticks=false,
+        hide obscured y ticks=false,
+        scaled ticks=false,
+        axis lines=center,
+        xlabel style={anchor=west,},
+        xtick distance=1,
+        xtick pos=bottom,
+        ytick distance=1,
+        ytick pos=left,
+        grid=major,
+        xticklabel style={shift={(0,0 |- {axis description cs:0,-1})}},
+        yticklabel style={shift={(0,0 -| {axis description cs:0,0})}},
+        ylabel={$a(g)$},
+        xlabel={$t(seg)$},
+        every axis x label/.style={
+        at={(ticklabel* cs:1)},
+        anchor=west,},
+        every axis y label/.style={
+            at={(ticklabel* cs:1)},
+            anchor=south,},
+        label style={font=\scriptsize{}},
+        /pgf/number format/.cd,
+            1000 sep={},
+        ]
+    \coordinate (sw) at (axis cs:0,-0.9);
+    \coordinate (ne) at (axis cs:95,0.9);
+    \draw[line width=0.15pt] (sw) rectangle (ne);
+    
+    \addplot [black,mark=none, line width = 0.01pt] table[col sep=comma] {ACELEROGRAMAS/LIMA-1974-EW.csv};
+    \end{axis}
+\end{tikzpicture}
+    \caption{}
+    \label{i3_1.1}
+\end{subfigure}
+\end{figure}
+\newpage
+\begin{figure}
+\centering
+\ContinuedFloat
+\begin{subfigure}[b]{0.98\linewidth}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width=0.98\linewidth, height=6.5cm,
+        xtick={0, 10, 20, 30, 40, 50, 60, 70, 80, 90},
+        ytick={-1.1, -0.9, -0.70, -0.50, -0.30, -0.10, 0.10, 0.30, 0.50, 0.70, 0.9, 1.1},
+        xmin=0,xmax=95,
+        ymin=-1.1, ymax=1.1,
+        minor y tick num=1,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        grid=both,
+        %grid=major,
+        tick label style={font=\tiny},
+        clip=false,
+        hide obscured x ticks=false,
+        hide obscured y ticks=false,
+        scaled ticks=false,
+        axis lines=center,
+        xlabel style={anchor=west,},
+        xtick distance=1,
+        xtick pos=bottom,
+        ytick distance=1,
+        ytick pos=left,
+        grid=major,
+        xticklabel style={shift={(0,0 |- {axis description cs:0,-1})}},
+        yticklabel style={shift={(0,0 -| {axis description cs:0,0})}},
+        ylabel={$a(g)$},
+        xlabel={$t(seg)$},
+        every axis x label/.style={
+        at={(ticklabel* cs:1)},
+        anchor=west,},
+        every axis y label/.style={
+            at={(ticklabel* cs:1)},
+            anchor=south,},
+        label style={font=\scriptsize{}},
+        /pgf/number format/.cd,
+            1000 sep={},
+        ]
+    \coordinate (sw) at (axis cs:0,-1.1);
+    \coordinate (ne) at (axis cs:95,1.1);
+    \draw[line width=0.15pt] (sw) rectangle (ne);
+    
+    \addplot [black,mark=none, line width = 0.01pt] table[col sep=comma] {ACELEROGRAMAS/LIMA-1974-NS.csv};
+    \end{axis}
+\end{tikzpicture}
+    \caption{}
+    \label{i3_1.2}
+\end{subfigure}
+    \caption[Acelerogramas del sismo de Lima 1974]{Acelerogramas del sismo de Lima 1974:
+    \subref{i3_1.1} Dirección Este-Oeste (EW);
+    \subref{i3_1.2} Dirección Norte-Sur (NS)\label{i3_1}}
+\end{figure}
+
+\subsection{Generación del espectro de aceleraciones}
+De cada acelerograma se genera un espectro de pseudo-aceleraciones para diferentes periodos y considerando una tasa de amortiguamiento $\xi = 5\%$. Asimismo, en cada par de acelerogramas (direcciones EW y NS) se aplica el método SRSS (\textit{Square-Root-of-Sum-of-Squares}) a cada componente de aceleración multiplicado por un factor. Se aplica el factor de $0.90\alpha$ en la componente principal y $0.44\beta$ en la otra componente. De esta forma el resultado SRSS se puede expresar de la siguiente forma:
+\begin{equation}
+    \ddot{x}_{\text{SRSS}} = \sqrt{(0.90\alpha \cdot \ddot{x}_1)^2 + (0.44\beta \cdot \ddot{x}_2)^2} \label{eq3_1}
+\end{equation}
+Donde:
+\begin{itemize}
+    \item{\makebox[1cm][l]{$\ddot{x}_{\text{SRSS}}$}}: aceleración SRSS con factor de ajuste
+    \item{\makebox[1cm][l]{$\alpha$}}: factor de ajuste en la componente principal $(\alpha \geq 1)$
+    \item{\makebox[1cm][l]{$\beta$}}: factor de ajuste en la componente secundaria $(\beta \geq 1)$
+    \item{\makebox[1cm][l]{$\ddot{x}_1$}}: aceleración en la componente principal
+    \item{\makebox[1cm][l]{$\ddot{x}_2$}}: aceleración en la componente secundaria
+\end{itemize}
+
+Asimismo, la Norma E.031 en el artículo 15\supercite{E031.7} indica que para el análisis tiempo historia se debe considerar la comparación entre el promedio de al menos 7 pares de registros de aceleraciones de suelo y el espectro de la Norma E.031. Así, la figura \ref{i3_2} esquematiza este proceso.
+\newpage
+\begin{figure}[h!]
+    \centering
+
+\begin{subfigure}[b]{0.43\linewidth}
+\begin{SISMO}{SISMO LIMA 1974}
+    \centering
+$
+\begin{pmatrix}
+\begin{tikzpicture}
+    \begin{axis}[
+        xtick={0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+        ytick={0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2},
+        width=5cm, height=4.8cm,
+        xlabel={$T \; (seg)$},
+        ylabel={$S_a \; (g)$},
+        label style={font=\footnotesize},
+        tick label style={font=\tiny},
+        x label style={at={(axis description cs: 0.5,0)},anchor=north},
+        y label style={at={(axis description cs:0,.5)},anchor=north},
+        %rotate=90,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        grid = both,
+        minor tick num=1,
+        xmin = 0.0,
+        xmax = 10,
+        ymin = 0,
+        ymax = 2.2,
+        clip=false,]
+    \addplot [black,mark=none, line width = 0.5pt] table[col sep=comma] {ESPECTROS/Sa_LIMA_1974_EW.csv};
+    \draw[blue!70, smooth, line width=0.8pt] (axis cs:2,0.4) to[out=45, in=180] (axis cs:5,1.1) node[right,font=\tiny] {$\bm{\beta = 5\%}$};
+    \legend{\scriptsize \text{ESTE-OESTE}};
+    \end{axis}
+  \end{tikzpicture}
+\end{pmatrix}
+$
+\\[20pt]
+$
+\begin{pmatrix}
+\begin{tikzpicture}
+    \begin{axis}[
+        xtick={0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+        ytick={0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2},
+        width=5cm, height=4.8cm,
+        xlabel={$T \; (seg)$},
+        ylabel={$S_a \; (g)$},
+        label style={font=\footnotesize},
+        tick label style={font=\tiny},
+        x label style={at={(axis description cs: 0.5,0)},anchor=north},
+        y label style={at={(axis description cs:0,.5)},anchor=north},
+        %rotate=90,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        grid = both,
+        minor tick num=1,
+        xmin = 0.0,
+        xmax = 10,
+        ymin = 0,
+        ymax = 2,
+        clip=false,]
+    \addplot [black,mark=none, line width = 0.5pt] table[col sep=comma] {ESPECTROS/Sa_LIMA_1974_NS.csv};
+    \draw[blue!70, smooth, line width=0.8pt] (axis cs:2,0.35) to[out=45, in=180] (axis cs:5,1.1) node[right,font=\tiny] {$\bm{\beta = 5\%}$};
+    \legend{\scriptsize \text{NORTE-SUR}};
+    \end{axis}
+  \end{tikzpicture}
+\end{pmatrix}
+$
+\end{SISMO}
+\begin{tikzpicture}[remember picture, overlay]
+    \node[align=center] at (-0.68,11.21) {\includegraphics[scale=0.25]{img/3-CAP/RAIZ.pdf}};
+    \node[align=center, rotate=90] at (0.4,8.7) {\large $\times (0.90\alpha)^2$};
+    \node[align=center] at (6.2,11.1) {\large $2$};
+    \node[align=center, rotate=90] at (0.4,3.3) {\large $\times (0.44\beta)^2$};
+    \node[align=center] at (6.2,5.7) {\large $2$};
+    \node[align=center, rotate=90] at (3.3,6.1) {\huge $+$};
+\end{tikzpicture}
+\caption{}
+\label{i3_2.1}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.43\linewidth}
+\begin{SISMO}{SISMO PISCO 2007}
+    \centering
+$
+\begin{pmatrix}
+\begin{tikzpicture}
+    \begin{axis}[
+        xtick={0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+        ytick={0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2},
+        width=5cm, height=4.8cm,
+        xlabel={$T \; (seg)$},
+        ylabel={$S_a \; (g)$},
+        label style={font=\footnotesize},
+        tick label style={font=\tiny},
+        x label style={at={(axis description cs: 0.5,0)},anchor=north},
+        y label style={at={(axis description cs:0,.5)},anchor=north},
+        %rotate=90,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        grid = both,
+        minor tick num=1,
+        xmin = 0.0,
+        xmax = 10,
+        ymin = 0,
+        ymax = 2,
+        clip=false,]
+    \addplot [black,mark=none, line width = 0.5pt] table[col sep=semicolon] {ESPECTROS/Sa_PISCO_2007_EW.csv};
+    \draw[blue!70, smooth, line width=0.8pt] (axis cs:2,0.35) to[out=45, in=180] (axis cs:5,1.1) node[right,font=\tiny] {$\bm{\beta = 5\%}$};
+    \legend{\scriptsize\text{ESTE-OESTE}};
+    \end{axis}
+  \end{tikzpicture}
+\end{pmatrix}
+$
+\\[20pt]
+$
+\begin{pmatrix}
+\begin{tikzpicture}
+    \begin{axis}[
+        xtick={0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+        ytick={0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2},
+        width=5cm, height=4.8cm,
+        xlabel={$T \; (seg)$},
+        ylabel={$S_a \; (g)$},
+        label style={font=\footnotesize},
+        tick label style={font=\tiny},
+        x label style={at={(axis description cs: 0.5,0)},anchor=north},
+        y label style={at={(axis description cs:0,.5)},anchor=north},
+        %rotate=90,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        grid = both,
+        minor tick num=1,
+        xmin = 0.0,
+        xmax = 10,
+        ymin = 0,
+        ymax = 2.2,
+        clip=false,]
+    \addplot [black,mark=none, line width = 0.5pt] table[col sep=semicolon] {ESPECTROS/Sa_PISCO_2007_NS.csv};
+    \draw[blue!70, smooth, line width=0.8pt] (axis cs:2,0.4) to[out=45, in=180] (axis cs:5,1.1) node[right,font=\tiny] {$\bm{\beta = 5\%}$};
+    \legend{\scriptsize\text{NORTE-SUR}};
+    \end{axis}
+  \end{tikzpicture}
+\end{pmatrix}
+$
+\end{SISMO}
+\begin{tikzpicture}[remember picture, overlay]
+    \node[align=center] at (-0.68,11.21) {\includegraphics[scale=0.25]{img/3-CAP/RAIZ.pdf}};
+    \node[align=center, rotate=90] at (0.4,8.7) {\large $\times (0.90\alpha)^2$};
+    \node[align=center] at (6.2,11.1) {\large $2$};
+    \node[align=center, rotate=90] at (0.4,3.3) {\large $\times (0.44\beta)^2$};
+    \node[align=center] at (6.2,5.7) {\large $2$};
+    \node[align=center, rotate=90] at (3.3,6.1) {\huge $+$};
+\end{tikzpicture}
+\caption{}
+\label{i3_2.2}
+\end{subfigure}
+\begin{tikzpicture}[remember picture, overlay]
+    \draw[decorate,decoration={brace,amplitude=12pt,raise=5pt, mirror},line width=1.25pt] (-11,1) -- (-5,1) node[midway,yshift=-2pt] {\footnotesize PROMEDIO CON OTROS $5$ PARES};
+\end{tikzpicture}
+\caption[Proceso de ajuste de espectros de aceleración con el método SRSS]{Proceso de ajuste de espectros de aceleración con el método SRSS:
+    \subref{i3_2.1} Sismo de Lima en 1974;
+    \subref{i3_2.2} Sismo de Pisco en 2007
+}
+\label{i3_2}
+\end{figure}
+
+En la siguiente tabla se adjunta los factores $\alpha$ y $\beta$ que se consideraron para escalar los espectros.
+
+\begin{longtblr}[
+    caption = {Factores de ajuste $\alpha$ y $\beta$ aplicados a los espectros},
+    label = {t3_2},
+]{
+    colspec = {r X[l,wd=4cm] X[c,m] c X[c,m] c},
+    row{1} = {font = \bfseries},
+    hline{1,9} = {1pt},
+    hline{2} = {0.25pt},
+    row{3,5,7} = {gray!8},
+}
+    n\textdegree & Nombre & Orientación & $\bm{\alpha}$ & Orientación & $\bm{\beta}$ \\
+
+    1 & SM-AR-2001 & EW & $1.09$ & NS & $1.36$ \\
+
+    2 & SM-LIMA-1966 & EW & $1.00$ & NS & $1.00$ \\
+
+    3 & SM-LIMA-1974 & EW & $1.00$ & NS & $1.00$ \\
+
+    4 & SM-MAULE-2010 & EW & $1.09$ & NS & $1.48$ \\
+
+    5 & SM-PISCO-2007 & EW & $1.10$ & NS & $1.48$ \\
+
+    6 & SM-TARAPACA-2005& EW & $1.08$ & NS & $1.25$ \\
+
+    7 & SM-TOCOPILLA-2007 & EW & $1.10$ & NS & $1.02$ 
+\end{longtblr}
+
+Finalmente, el resultado del promedio de los 7 pares de espectros y el espectro de la Norma E.031 es el siguiente:
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        xtick={0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10},
+        ytick={0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1},
+        width=\linewidth, height=14cm,
+        xlabel={$T \; (seg)$},
+        ylabel={$S_a \; (g)$},
+        label style={font=\normalsize},
+        tick label style={font=\tiny},
+        x label style={at={(axis description cs: 0.5,0)},anchor=north},
+        y label style={at={(axis description cs:0,.5)},anchor=north},
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        grid = both,
+        minor tick num=4,
+        xmin = 0.0,
+        xmax = 10,
+        ymin = 0,
+        ymax = 2.1,
+        clip=false,]
+    \addplot [blue,mark=none, line width = 1pt] table[col sep=semicolon] {ESPECTROS/SRSS_PROM.csv};
+    \addplot [black,mark=none, line width = 1pt] table[col sep=semicolon] {ESPECTROS/Sa_E031.csv};
+    \draw[black!70, smooth, line width=0.25pt] (axis cs:2,0.345) to[out=-10, in=180] (axis cs:5,0.8) node[right,font=\normalsize] {$\bm{\beta = 5\%}$};
+    \draw[blue!70, smooth, line width=0.25pt] (axis cs:2,0.4) to[out=45, in=180] (axis cs:5,1.1) node[right,font=\normalsize] {$\bm{\beta = 5\%}$};
+    
+    \legend{\small$S_a (g)$ SRSS promedio, \small$S_a (g)$ Norma E.031};
+
+    \end{axis}
+  \end{tikzpicture}
+\end{figure}
+
+La condición es que el espectro SRSS promedio debe ser aproximadamente la misma curva en los diferentes tramos de la Norma E.031. Los resultados anteriores muestran que no se cumplen ligeramente en el primer tramo de la curva cuando $T \in [0.00, 0.08]$. 

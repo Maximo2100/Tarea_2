@@ -1,0 +1,290 @@
+\onehalfspacing
+
+\section{Construcción de la curva bilineal}
+
+\subsection{Parámetros de la curva bilineal}
+
+\subsubsection{Desplazamiento de fluencia}
+Empleando la siguiente ecuación:
+\begin{equation}
+      \left. 2\pi \cdot \xi \cdot D - \dfrac{4D_y \cdot (\alpha - 1) \cdot (D - D_y)}{D + (\alpha - 1) \cdot D_y} = 0 \right |_{D_y \leq 5\%D_{max}}
+      \label{eq2_1}
+\end{equation}
+Donde:
+\begin{itemize}
+    \item{\makebox[0.6cm][l]{$\xi$}}: tasa de amortiguamiento $(\xi = 15\%)$
+    \item{\makebox[0.6cm][l]{$D$}}: desplazamiento máximo de la estructura $(D = D_{max} = 29.467 \; cm)$
+    \item{\makebox[0.6cm][l]{$\alpha$}}: relación entre rigideces $\left(\alpha = \frac{K_1}{K_2} = 10 \right)$
+    \item{\makebox[0.6cm][l]{$D_y$}}: desplazamiento de fluencia
+\end{itemize}
+{\noindent Resolviendo la ecuación se obtiene:}
+\begin{align*}
+    D_y = 
+    \begin{cases}
+        1.059 \; cm &, D_y \leq 5\%D_{max} \; \text{\checkmark} \\
+        21.467 \; cm &, Dy > 5\%D_{max}
+    \end{cases}
+\end{align*}
+
+\subsubsection{Rigidez post-fluencia}
+Se emplea la siguiente expresión:
+\begin{equation}
+    K_2 = \dfrac{K_{eff} \cdot D}{D + (\alpha - 1) \cdot D_y} \label{eq2_2}
+\end{equation}
+Donde:
+\begin{itemize}
+    \item{\makebox[0.9cm][l]{$K_2$}}: rigidez post-fluencia
+    \item{\makebox[0.9cm][l]{$K_{eff}$}}: rigidez efectiva $\left( K_{eff} = Ks = 8180.22 \; \frac{tonf}{m} \right)$
+\end{itemize}
+Resolviendo:
+\begin{align*}
+    K_2 &= \dfrac{8180.22 \cdot 0.295}{0.295 + (10 - 1) \cdot 0.01059} \\
+    K_2 &= 6182.69 \; \frac{tonf}{m}
+\end{align*}
+
+\subsubsection{Rigidez inicial}
+Se desarrolla la siguiente expresión:
+\begin{equation}
+    K_1 =  \alpha \cdot K_2
+    \label{eq2_3}
+\end{equation}
+Donde:
+\begin{itemize}
+    \item{\makebox[0.6cm][l]{$K_1$}}: rigidez inicial
+\end{itemize}
+El resultado es:
+\begin{align*}
+    K_1 &= \alpha \cdot K_2 = 10 \cdot 6182.69 \\
+    K_1 &= 61826.90 \; \frac{tonf}{m}
+\end{align*}
+
+\subsubsection{Otros puntos}
+\begin{itemize}
+    \item \textbf{Resistencia característica:}
+    \begin{align}
+        Q &= D_y \cdot K_2 \cdot (\alpha - 1) \label{eq2_4} \\
+        Q &= 0.01059 \cdot 6182.69 \cdot (10 - 1) \nonumber \\
+        Q &= 589.272 \; tonf \nonumber
+    \end{align}
+    
+    \item \textbf{Fuerza de fluencia:}
+    \begin{align}
+        F_y &= K_1 \cdot D_y \label{eq2_5} \\
+        F_y &= 61826.90 \cdot 0.01059 \nonumber \\
+        F_y &=  654.747 \; tonf \nonumber
+    \end{align}
+
+    \item \textbf{Fuerza máxima:}
+    \begin{align}
+        F_{max} &= K_{eff} \cdot D_{max} \label{eq2_6} \\
+        F_{max} &= 8180.22 \cdot 0.2947 \nonumber \\
+        F_{max} &= 2410.71 \; tonf \nonumber
+    \end{align}
+\end{itemize}
+
+\subsubsection{Comprobación de resultados}
+\begin{itemize}
+    \item \textbf{Fuerza máxima:}
+    \begin{align*}
+        &\underbrace{K_1 \cdot D_y}_{F_1} + \underbrace{K_2 \cdot (D_{max} - D_y)}_{F_2} = \underbrace{K_{eff} \cdot D_{max}}_{F_{max}} \\
+        &F_1 = 61826.90 \cdot 0.01059 = 654.60 \; tonf \\ 
+        &F_2 = 6182.69 \cdot (0.29467 - 0.01059) = 1755.90 \; tonf \\ 
+        &F_{max} = 8180.22 \cdot 0.29467 = 2410.50 \; tonf \\
+        &\begin{tblr}{
+            colspec = {r l}
+        }
+            654.60 & = F_1 \\
+            +1755.90 & = F_2 \\
+            \cline[0.5pt]{1-1}
+            2410.50 & \checkmark 
+        \end{tblr}
+    \end{align*}
+    
+    \item \textbf{Razón de amortiguamiento:}
+    \begin{align*}
+        \xi &= \dfrac{4Q \cdot (D_{max} - D_y)}{2 \cdot \pi \cdot K_{eff} \cdot D_{max}^2} = \dfrac{4 \cdot 589.272 \cdot (0.2947 - 0.01059)}{2 \pi \cdot 8180.22 \cdot 0.2947^2} \\
+        \xi &= \dfrac{669.45}{4463.00} \approx 0.15 = 15\% \; \checkmark
+    \end{align*}
+\end{itemize}
+
+\subsubsection{Gráfica de la curva bilineal}
+Con los valores obtenidos se hace la gráfica en un sistema fuerza vs. desplazamiento. La tabla \ref{t2_1} indica los puntos graficados.
+
+%\newpage
+\begin{longtblr}[
+    caption = {Puntos notables en la curva bilineal para el sistema completo e individual de aisladores},
+    label = {t2_1},
+    note{1} = {\scriptsize Los valores individuales se hallan dividiendo entre $90$ las cantidades del sistema},
+]{
+    colspec = {l c X[c,m] c c X[c,m] c X[c,m]},
+    cell{1}{2} = {c=2}{c},
+    cell{1}{4} = {c=5}{c},
+    cell{2}{7} = {r=4}{c},
+    cell{2}{5} = {r=4}{c},
+    row{1,2} = {font = \small\bfseries},
+    row{3,4,5,6,7} = {font = \small},
+    hline{3} = {0.25pt},
+    stretch = 1,
+    rowsep = 3pt,
+    vline{5,6,7,8} = {2-5}{0.25pt, solid},
+    hline{6} = {1pt},
+    row{3,5} = {gray!8},
+}
+    \cline[1pt]{2-8}
+     & {Desplazamientos $\bm{(m)}$ \\ $\bm{\times 10^{-3}}$} &  & {Fuerzas \\ $\bm{(tonf)}$} \\
+    \cline[0.25pt]{2-3}
+    \cline[0.25pt,l]{4-4}
+    \cline[0.25pt]{5-8}
+    
+    Nombre & Id. & Valor & Id. & \rotatebox[origin=c]{90}{\footnotesize SISTEMA} & Valor & \rotatebox[origin=c]{90}{\footnotesize INDIVIDUAL\TblrNote{1}} & Valor \\
+
+    Fluencia & $D_y$ & $10.59$ & $F_y$ & & $654.60$ & & $7.27$ \\
+
+    Máximo & $D_{max}$ & $294.67$ & $F_{max}$ & {} & $2410.50$ & {} & $26.78$ \\
+
+    Característica & $-$ & $-$ & $Q$ & {} & $589.13$ & {} & $6.55$
+\end{longtblr}
+
+{\noindent Las gráficas histeréticas de cada caso se muestran a continuación:}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\linewidth}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        /pgf/number format/.cd,
+            use comma,
+            1000 sep={},
+        xtick={-300, -250, -200, -150, -100, -50, 0, 50, 100, 150, 200, 250, 300},
+        ytick={-2800, -2400, -2000, -1600, -1200, -800, -400, 0, 400, 800, 1200, 1600, 2000, 2400, 2800},
+        width=7.8cm, height=6.5cm,
+        ymin=-2600,ymax=2600,
+        xmin=-350,xmax=350,
+        minor y tick num=1,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        grid=both,
+        %grid=major,
+        tick label style={font=\tiny},
+        clip=false,
+        hide obscured x ticks=false,
+        hide obscured y ticks=false,
+        scaled ticks=false,
+        axis lines=center,
+        xlabel style={anchor=west,},
+        xtick distance=1,
+        xtick pos=bottom,
+        ytick distance=1,
+        ytick pos=left,
+        grid=major,
+        xticklabel style={shift={(0,0 |- {axis description cs:0,-1})}},
+        yticklabel style={shift={(0,0 -| {axis description cs:-0.57,0})}},
+        ylabel={$F(tonf)$},
+        xlabel={$x(mm)$},
+        every axis x label/.style={
+        at={(ticklabel* cs:1)},
+        anchor=west,},
+        every axis y label/.style={
+            at={(ticklabel* cs:1)},
+            anchor=south,},
+        label style={font=\scriptsize{}},
+        ]
+    \coordinate (sw) at (axis cs:-350,-2600);
+    \coordinate (ne) at (axis cs:350,2600);
+    \draw[line width=0.15pt] (sw) rectangle (ne);
+    
+    \addplot[mark=none, black, line width=1.25pt] coordinates {(0,589.13) (10.59, 654.60) (294.67,2410.50) (273.49, 1101.31) (0,-589.13) (-294.67,-2410.50) (-273.49, -1101.31) (0,589.13)};
+    
+    \addplot[mark=none, black, line width=1.25pt] coordinates {(-10.59,-654.59) (10.59,654.59)};
+    
+    \addplot[dashed, mark=none, black!75, line width=0.5pt] coordinates {(-294.67,-2410.50) (294.67,2410.50)};
+    
+    \addplot[draw=none,black] coordinates {(0,589.13) (10.59, 654.60) (294.67,2410.50) (273.49, 1101.31) (0,-589.13) (-294.67,-2410.50) (-273.49, -1101.31) (0,589.13)} [arrow inside={end=Latex, opt={black, scale=1.5}}{0.08, 0.16, 0.27, 0.35, 0.45, 0.58, 0.67, 0.77, 0.86, 0.94}];
+    
+    \addplot[mark=none, black, line width=1.25pt] coordinates {(-10.59,-654.59) (10.59,654.59)} [arrow inside={end=Latex, opt={black, scale=0.9}}{0.65}];
+    \end{axis}
+\end{tikzpicture}
+\caption{}
+\label{i2_1.1}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\linewidth}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        /pgf/number format/.cd,
+            use comma,
+            1000 sep={},
+        xtick={-300, -250, -200, -150, -100, -50, 0, 50, 100, 150, 200, 250, 300},
+        ytick={-30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30},
+        width=7.8cm, height=6.5cm,
+        ymin=-30,ymax=30,
+        xmin=-350,xmax=350,
+        minor y tick num=1,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        grid=both,
+        %grid=major,
+        tick label style={font=\tiny},
+        clip=false,
+        hide obscured x ticks=false,
+        hide obscured y ticks=false,
+        scaled ticks=false,
+        axis lines=center,
+        xlabel style={anchor=west,},
+        xtick distance=1,
+        xtick pos=bottom,
+        ytick distance=1,
+        ytick pos=left,
+        grid=major,
+        xticklabel style={shift={(0,0 |- {axis description cs:0,-1})}},
+        yticklabel style={shift={(0,0 -| {axis description cs:-0.57,0})}},
+        ylabel={$F(tonf)$},
+        xlabel={$x(mm)$},
+        every axis x label/.style={
+        at={(ticklabel* cs:1)},
+        anchor=west,},
+        every axis y label/.style={
+            at={(ticklabel* cs:1)},
+            anchor=south,},
+        label style={font=\scriptsize{}},
+        ]
+    \coordinate (sw) at (axis cs:-350,-30);
+    \coordinate (ne) at (axis cs:350,30);
+    \draw[line width=0.15pt] (sw) rectangle (ne);
+    
+    \addplot[mark=none, black!65, line width=1.25pt] coordinates {(0,6.54) (10.59, 7.27) (294.67,26.78) (273.49, 12.24) (0,-6.54) (-294.67,-26.78) (-273.49, -12.24) (0,6.54)};
+    
+    \addplot[mark=none, black!65, line width=1.25pt] coordinates {(-10.59,-7.27) (10.59,7.27)};
+    
+    \addplot[dashed, mark=none, black!65, line width=0.5pt] coordinates {(-294.67,-26.78) (294.67,26.78)};
+    
+    \addplot[draw=none,black!65] coordinates {(0,6.54) (10.59, 7.27) (294.67,26.78) (273.49, 12.24) (0,-6.54) (-294.67,-26.78) (-273.49, -12.24) (0,6.54)} [arrow inside={end=Latex, opt={black!65, scale=1.5}}{0.08, 0.16, 0.27, 0.35, 0.45, 0.58, 0.67, 0.77, 0.86, 0.94}];
+    
+    \addplot[mark=none, black!65, line width=1.25pt] coordinates {(-10.59,-7.27) (10.59,7.27)} [arrow inside={end=Latex, opt={black!65, scale=0.9}}{0.65}];
+    \end{axis}
+\end{tikzpicture}
+\caption{}
+\label{i2_1.2}
+\end{subfigure}
+\begin{tikzpicture}[remember picture, overlay]
+    \draw[black!55,->, bend left=30] (-8.8,6.4) to node[above] {$\div 90$} (-7.6,6.4);
+\end{tikzpicture}
+\caption[Curvas histeréticas generadas a partir de los puntos notables]{Curvas histeréticas generadas a partir de los puntos notables:
+    \subref{i2_1.1} Sistema de aislamiento;
+    \subref{i2_1.2} Aislamiento individual
+}
+\label{i2_1}
+\end{figure}
+
+\subsubsection{Comprobación de la fuerza restitutiva}
+Se debe cumplir la condición de que la fuerza restitutiva $(f_{res})$ debe ser mayor al $2.5\%$ del peso total de la estructura $(P_t)$. la fuerza restitutiva se puede hallar de la siguiente forma:
+\begin{equation}
+    f_{res} = K_2 \cdot D_{max} \label{eq2_7}
+\end{equation}
+Resolviendo:
+\begin{align*}
+    f_{res} &= K_2 \cdot \dfrac{D_{max}}{2} = 6182.69 \cdot \dfrac{0.295}{2} = 910.68 \; tonf \\
+    f_{res} &= 910.68 > 2.5\%P_t \rightarrow 910.68 > \underbrace{2.5\% \cdot 30339.92}_{758.50} \; \checkmark
+\end{align*}

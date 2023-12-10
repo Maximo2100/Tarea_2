@@ -1,0 +1,40 @@
+\begin{titlepage}
+\newgeometry{left=7.5cm} %defines the geometry for the titlepage
+\pagecolor{titlepagecolor}
+\noindent
+\includegraphics[scale=0.45]{img/LOGO_CETAM.pdf}\\[-0.5em]
+\color{black}
+\makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}
+\par
+\noindent
+\textbf{CURSO CAPACITACIÓN} \textcolor{namecolor}{EDUCACIÓN CONTINUA} \\[160pt]
+ % restores the geometry
+%\vskip120pt
+{\noindent
+    \Huge\bfseries AISLAMIENTO SÍSMICO \\[12pt] DE EDIFICIOS SEGÚN \\[15pt] NORMA NTP E-031
+} %\\[160pt]
+\begin{tikzpicture}[remember picture, overlay]
+    \node[align=center] at (-3.6,-8)
+    {
+    \begin{tblr}{
+        colspec = {X[l,wd=1.6cm] X[l,wd=0.2cm] X[l,t]},
+        stretch = 1,
+        rowsep = 5pt,
+        cell{1}{1} = {c=3}{l},
+        hline{2} = {0.75pt},
+        }
+        {\large\bfseries{TAREA 2}} \\
+        \underline{Profesor} & : & Juan Alejandro Muñoz Pelaez \\
+    
+        \underline{Integrantes} & : & { \\
+        $\small\bullet$ Henry Alexander Mamani Coaquira \\[6pt]
+        $\small\bullet$ Dick Fran Zarate Lazo 
+        }
+    \end{tblr}
+    };
+    \node[align=right] at (0.3,-11.5) {\footnotesize Perú, diciembre \\ \footnotesize 2023};
+\end{tikzpicture}
+\restoregeometry
+\end{titlepage}
+
+\nopagecolor% Use this to restore the color pages to white
